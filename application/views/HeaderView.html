@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{lang}}" lang="{{lang}}">
+	<head>
+   <title>
+     {{_lang.brand}}
+   </title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   {{  cssArray|raw  }}
+   {{  jsArray|raw  }}
+   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+   </head>
+<body>
+  <div class="container-fluid" id="main-content">
+    {% if __error is defined or __success is defined %}
+      <div class="row-fluid">
+        <div class="span12">
+        {%  if __error is defined %}
+          <div class="alert alert-error">
+                <b>{{  __error|raw}}</b>
+          </div>
+        {% elseif __success is defined %}
+          <div class="alert alert-success">
+             <b>{{  __success|raw}}</b>
+          </div>
+        {%  endif%}
+      </div>
+    </div>
+    {% endif %}
+    <div class="row-fluid">
+
+          

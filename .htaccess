@@ -1,0 +1,23 @@
+# Règles de réécriture pour Zend Framework
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php
+
+# Sécurité : Ne pas autoriser le parcours de répertoires
+Options -Indexes
+SetEnv PHP_VER 5
+ErrorDocument 404 /application/views/error/404.html
+ErrorDocument 401 /application/views/error/404.html
+ErrorDocument 403 /application/views/error/404.html
+ErrorDocument 500 /application/views/error/404.html
+<FilesMatch "\.(sql)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(log)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
